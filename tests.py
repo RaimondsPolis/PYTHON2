@@ -1,6 +1,6 @@
 
 class Cilveks:
-    def __init__(self, vards, vecums, dzimums):
+    def __init__(self, vards, dzimums, vecums = 0):
         self.name = vards
         self.gender = dzimums
         self.age = vecums
@@ -11,23 +11,64 @@ class Cilveks:
     def vardamaina(self):
         self.name = input("Ievadi jauno vārdu!")
         
-    def pastastiparsevi(self):
-        if self.gender == "s":
-            self.gender = "sieviete"
-        elif self.gender == "v":
-            self.gender = "vīrietis"
-        print("sveiki,mani sauc {}, mans dzimums ir {}, man ir {} gadi.".format(self.name, self.gender, self.age))
         
+    def Genderchange(self, jaunais_dzimums = ""):
+        if jaunais_dzimums == "":
+            if self.gender == "s":
+                print("s")
+                self.gender = "v"
+                print("tavs dzimums tagad ir: ", self.gender )
+            elif self.gender == "v":
+                print("v")
+                self.gender = "s"
+                print("tavs dzimums tagad ir: ", self.gender )
+            else:
+                print("nekatrs")
+                # self.gender = input("ievadi savu jauno dzimumu: ")
+        else:
+            print("jauns")
+            self.gender = jaunais_dzimums
+        self.info()
+        
+    def info(self):
+        if self.gender == "s":
+            vards = "sieviete"
+        elif self.gender == "v":
+            vards = "vīrietis"
+        print("sveiki,mani sauc {}, mans dzimums ir {}, man ir {} gadi.".format(self.name, vards, self.age))
+    
+class Sieviete(Cilveks):
+    def __init__(self, vards, haircolor, vecums=0):
+        super().__init__(vards, "s", vecums)
+        self.matukrasa = haircolor
+        self.info()
+    def __del__(self):
+        print("I kms now, bye <3")
+
+class Virietis(Cilveks):
+
+    def __init__(self, vards, bench, vecums=0):
+        super().__init__(vards, "v", vecums)
+        self.press = bench
+        self.info()
+
+    def info(self):
+        super().info()
+        print("Es varu benchot {}".format( self.press))
 
 
-persona = Cilveks("Marta", 34 , "s")
-print(persona.name)
-print(persona.age)
-print(persona.gender)
-raimonds = Cilveks("raimonds", 17, "v")
-print(raimonds.name, raimonds.age, raimonds.gender)
-raimonds.dzdiena()
-print(raimonds.age)
-raimonds.pastastiparsevi()
-raimonds.vardamaina()
-raimonds.pastastiparsevi() 
+    def strong(self):
+        self.press +=20
+    
+    def __del__(self):
+        print("YOUR MOTHER HUNG HERSELF, RAAAAAAAAAAAAH")
+
+persona = Cilveks("Marta", "s", 34)
+raimonds = Cilveks("raimonds", "v", 17)
+human = Sieviete("Madara", "brūna")
+darius = Virietis("Darius", 405, 28)
+print(darius.gender)
+darius.Genderchange()
+darius.info()
+darius.info()
+
