@@ -35,7 +35,9 @@ class Cilveks:
             vards = "sieviete"
         elif self.gender == "v":
             vards = "vīrietis"
-        print("sveiki,mani sauc {}, mans dzimums ir {}, man ir {} gadi.".format(self.name, vards, self.age))
+        else:
+            vards = self.gender
+        return "sveiki,mani sauc {}, mans dzimums ir {}, man ir {} gadi.".format(self.name, vards, self.age)
     
 class Sieviete(Cilveks):
     def __init__(self, vards, haircolor, vecums=0):
@@ -43,7 +45,7 @@ class Sieviete(Cilveks):
         self.matukrasa = haircolor
         self.info()
     def __del__(self):
-        print("I kms now, bye <3")
+        print("aaa")
 
 class Virietis(Cilveks):
 
@@ -61,14 +63,9 @@ class Virietis(Cilveks):
         self.press +=20
     
     def __del__(self):
-        print("YOUR MOTHER HUNG HERSELF, RAAAAAAAAAAAAH")
+        print("aa")
 
-persona = Cilveks("Marta", "s", 34)
-raimonds = Cilveks("raimonds", "v", 17)
-human = Sieviete("Madara", "brūna")
-darius = Virietis("Darius", 405, 28)
-print(darius.gender)
-darius.Genderchange()
-darius.info()
-darius.info()
-
+# persona = Cilveks("Marta", "s", 34)
+# raimonds = Cilveks("raimonds", "v", 17)
+# human = Sieviete("Madara", "brūna")
+# darius = Virietis("Darius", 405, 28)
