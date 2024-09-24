@@ -37,7 +37,7 @@ class Cilveks:
             vards = "vīrietis"
         else:
             vards = self.gender
-        return "sveiki,mani sauc {}, mans dzimums ir {}, man ir {} gadi.".format(self.name, vards, self.age)
+        return "Sveiki, mani sauc {}, mans dzimums ir {}, man ir {} gadi.".format(self.name, vards, self.age)
     
 class Sieviete(Cilveks):
     def __init__(self, vards, haircolor, vecums=0):

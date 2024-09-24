@@ -1,11 +1,10 @@
-from tests import Cilveks
-from tests import Sieviete
-from tests import Virietis
+from Classes import Cilveks
+from Classes import Sieviete
+from Classes import Virietis
 import tkinter as tk
 from tkinter import ttk
 from tkinter.messagebox import showinfo
 
-visi_cilveki = []
 
 
 
@@ -29,6 +28,7 @@ dzimums_label.grid(column=0, row=1, sticky='W', **options)
 
 vecums_label = ttk.Label(frame, text='Vecums')
 vecums_label.grid(column=0, row=2, sticky='W', **options)
+
 
 # vards entry
 vards = tk.StringVar()
@@ -68,6 +68,39 @@ def convert_button_clicked():
 convert_button = ttk.Button(frame, text='Ražot cilvēku')
 convert_button.grid(column=2, row=0, sticky='W', **options)
 convert_button.configure(command=convert_button_clicked)
+
+
+
+#listbox attempts
+
+visi_cilveki=[]
+visi_cilveki_list = 0
+visi_cilveki.grid(column=0, row = 4, sticky="W", **options)
+
+var = tk.Variable(value=visi_cilveki)
+
+listbox=tk.Listbox(
+    visi_cilveki.grid,
+    listvariable=var,
+    height=10,
+    selecmode=tk.EXTENDED
+)
+
+listbox.pack(expand=True, fill=tk.BOTH)
+
+def items_selected(event):
+    # get all selected indices
+    selected_indices = listbox.curselection()
+    # get selected items
+    selected_langs = ",".join([listbox.get(i) for i in selected_indices])
+    msg = f'You selected: {selected_langs}'
+    showinfo(title='Information', message=msg)
+
+
+listbox.bind('<<ListboxSelect>>', items_selected)
+
+#attempt end
+
 
 # result label
 result_label = ttk.Label(frame)

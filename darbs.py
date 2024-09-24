@@ -1,5 +1,5 @@
-from tests import Sieviete
-from tests import Cilveks
+from Classes import Sieviete
+from Classes import Cilveks
 cilveku_saraksts = []
 
 for i in range(20):
