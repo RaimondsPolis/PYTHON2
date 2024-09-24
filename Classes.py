@@ -11,6 +11,8 @@ class Cilveks:
     def vardamaina(self):
         self.name = input("Ievadi jauno vārdu!")
         
+    def info2(self):
+        return "{}, {}, {}".format(self.name, vards, self.age)  
         
     def Genderchange(self, jaunais_dzimums = ""):
         if jaunais_dzimums == "":
@@ -39,6 +41,8 @@ class Cilveks:
             vards = self.gender
         return "Sveiki, mani sauc {}, mans dzimums ir {}, man ir {} gadi.".format(self.name, vards, self.age)
     
+    
+
 class Sieviete(Cilveks):
     def __init__(self, vards, haircolor, vecums=0):
         super().__init__(vards, "s", vecums)
