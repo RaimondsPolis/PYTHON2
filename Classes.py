@@ -1,4 +1,3 @@
-
 class Cilveks:
     def __init__(self, vards, dzimums, vecums = 0):
         self.name = vards
@@ -9,10 +8,8 @@ class Cilveks:
         self.age += 1
         
     def vardamaina(self):
-        self.name = input("Ievadi jauno vārdu!")
-
+        self.name = input("ievadi savu jauno vārdu: ")
     
-        
     def Genderchange(self, jaunais_dzimums = ""):
         if jaunais_dzimums == "":
             if self.gender == "s":
