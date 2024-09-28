@@ -10,6 +10,7 @@ class Cilveks:
     def vardamaina(self):
         self.name = input("ievadi savu jauno vārdu: ")
     
+
     def Genderchange(self, jaunais_dzimums = ""):
         if jaunais_dzimums == "":
             if self.gender == "s":
